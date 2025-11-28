@@ -18,11 +18,19 @@ body {
 .display {
     background-color: #222;
     color: #fff;
-    font-size: 2em;
     padding: 20px;
     text-align: right;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+}
+
+.previous-display {
+    font-size: 0.5em;
+    color: #aaa;
+}
+
+.current-display {
+    font-size: 2em;
 }
 
 .buttons {

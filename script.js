@@ -1,4 +1,5 @@
-const display = document.getElementById('display');
+const currentDisplay = document.getElementById('current-display');
+const previousDisplay = document.getElementById('previous-display');
 let currentInput = '';
 let operator = '';
 let previousInput = '';
@@ -10,7 +11,8 @@ function appendCharacter(char) {
 }
 
 function updateDisplay() {
-    display.textContent = currentInput || '0';
+    currentDisplay.textContent = currentInput || '0';
+    previousDisplay.textContent = previousInput ? `${previousInput} ${operator}` : '';
 }
 
 function clearDisplay() {
@@ -64,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     operator = char;
                     previousInput = currentInput;
                     currentInput = '';
+                    updateDisplay();
                 }
             });
         }
