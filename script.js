@@ -5,8 +5,19 @@ let operator = '';
 let previousInput = '';
 
 function appendCharacter(char) {
-    if (currentInput.includes('.') && char === '.') return;
+    if (char === '.' && currentInput.includes('.')) return;
     currentInput += char;
+    updateDisplay();
+}
+
+function handleOperator(op) {
+    if (currentInput === '') return;
+    if (previousInput !== '') {
+        calculateResult();
+    }
+    operator = op;
+    previousInput = currentInput;
+    currentInput = '';
     updateDisplay();
 }
 
@@ -54,21 +65,3 @@ function calculateResult() {
     previousInput = '';
     updateDisplay();
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.btn');
-    buttons.forEach(button => {
-        if (button.textContent !== '=' && button.textContent !== 'C' && button.textContent !== 'DEL') {
-            button.addEventListener('click', () => {
-                const char = button.textContent;
-                if (['/', '*', '-', '+'].includes(char)) {
-                    if (currentInput === '') return;
-                    operator = char;
-                    previousInput = currentInput;
-                    currentInput = '';
-                    updateDisplay();
-                }
-            });
-        }
-    });
-});
