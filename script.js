@@ -1,5 +1,6 @@
 const currentDisplay = document.getElementById('current-display');
 const previousDisplay = document.getElementById('previous-display');
+const darkModeToggle = document.getElementById('dark-mode-toggle');
 let currentInput = '';
 let operator = '';
 let previousInput = '';
@@ -65,3 +66,12 @@ function calculateResult() {
     previousInput = '';
     updateDisplay();
 }
+
+darkModeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
+        darkModeToggle.textContent = 'Light Mode';
+    } else {
+        darkModeToggle.textContent = 'Dark Mode';
+    }
+});

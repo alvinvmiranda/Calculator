@@ -1,5 +1,6 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -52,4 +53,36 @@ body {
 
 .btn-zero {
     grid-column: span 2;
+}
+
+#dark-mode-toggle {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode .calculator {
+    border-color: #555;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .display {
+    background-color: #444;
+}
+
+body.dark-mode .btn {
+    background-color: #555;
+    border-color: #777;
+    color: #fff;
+}
+
+body.dark-mode .btn:hover {
+    background-color: #666;
 }
